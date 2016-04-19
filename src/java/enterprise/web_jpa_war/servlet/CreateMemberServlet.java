@@ -30,7 +30,7 @@
 
 package enterprise.web_jpa_war.servlet;
 
-import enterprise.web_jpa_war.entity.User;
+import enterprise.web_jpa_war.entity.Member;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
@@ -44,10 +44,10 @@ import javax.transaction.UserTransaction;
 
 
 /**
- * The servlet class to insert User into database
+ * The servlet class to insert Member into database
  */
-@WebServlet(name="CreateUserServlet", urlPatterns={"/CreateUser"})
-public class CreateUserServlet extends HttpServlet {
+@WebServlet(name="CreateMemberServlet", urlPatterns={"/CreateMember"})
+public class CreateMemberServlet extends HttpServlet {
     
     @PersistenceUnit
     //The emf corresponding to 
@@ -67,13 +67,13 @@ public class CreateUserServlet extends HttpServlet {
         EntityManager em = null;
         try {
             
-            //Get the data from user's form
+            //Get the data from member's form
             String id         = (String) request.getParameter("id");
             String firstName  = (String) request.getParameter("firstName");
             String lastName   = (String) request.getParameter("lastName");
             
-            //Create a user instance out of it
-            User user = new User(id, firstName, lastName);
+            //Create a member instance out of it
+            Member member = new Member(id, firstName, lastName);
             
             //begin a transaction
             utx.begin();
@@ -81,15 +81,15 @@ public class CreateUserServlet extends HttpServlet {
             //Since the em is created inside a transaction, it is associsated with 
             //the transaction
             em = emf.createEntityManager();
-            //persist the user entity
-            em.persist(user);
+            //persist the member entity
+            em.persist(member);
             //commit transaction which will trigger the em to 
             //commit newly created entity into database
             utx.commit();
             
-            //Forward to ListUser servlet to list users along with the newly
-            //created user above
-            request.getRequestDispatcher("ListUser").forward(request, response);
+            //Forward to ListMember servlet to list members along with the newly
+            //created member above
+            request.getRequestDispatcher("ListMember").forward(request, response);
         } catch (Exception ex) {
             throw new ServletException(ex);
         } finally {

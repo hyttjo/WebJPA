@@ -41,10 +41,10 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityManager;
 
 /**
- * The servlet class to list Users from database
+ * The servlet class to list Members from database
  */
-@WebServlet(name="ListUserServlet", urlPatterns={"/ListUser"})
-public class ListUserServlet extends HttpServlet {
+@WebServlet(name="ListMemberServlet", urlPatterns={"/ListMember"})
+public class ListMemberServlet extends HttpServlet {
     
     @PersistenceUnit
     private EntityManagerFactory emf;
@@ -60,12 +60,12 @@ public class ListUserServlet extends HttpServlet {
         try {
             em = emf.createEntityManager();
 
-            //query for all the users in database
-            List users = em.createQuery("select p from User p").getResultList();
-            request.setAttribute("userList",users);
+            //query for all the members in database
+            List members = em.createQuery("select p from Member p").getResultList();
+            request.setAttribute("memberList",members);
             
             //Forward to the jsp page for rendering
-            request.getRequestDispatcher("ListUser.jsp").forward(request, response);
+            request.getRequestDispatcher("ListMember.jsp").forward(request, response);
         } catch (Exception ex) {
             throw new ServletException(ex);
         } finally {
@@ -99,7 +99,7 @@ public class ListUserServlet extends HttpServlet {
     /** Returns a short description of the servlet.
      */
     public String getServletInfo() {
-        return "ListUser servlet";
+        return "ListMember servlet";
     }
     // </editor-fold>
 }

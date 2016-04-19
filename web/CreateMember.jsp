@@ -38,12 +38,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Create a User Record</title>
+        <title>Create a Member Record</title>
     </head>
     <body>
 
-    <h1>Create a User record</h1>
-    <form id="createUserForm" action="CreateUser" method="post">
+    <h1>Create a Member record</h1>
+    <form id="createMemberForm" action="CreateMember" method="post">
     <table>
         <tr><td>ID:</td><td><input type="text" id = "id" name="id" /></td></tr>
         <tr><td>FirstName</td><td><input type="text" id = "firstName" name="firstName" /></td></tr>
@@ -51,6 +51,6 @@
     </table>
     <input type="submit" id="CreateRecord" value="CreateRecord" />
     </form>
-<a href="ListUser"><strong>Go to List of users</strong></a>
+<a href="ListMember"><strong>Go to List of members</strong></a>
 </body>
 </html>

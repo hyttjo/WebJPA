@@ -38,28 +38,28 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>List Of Users</title>
+        <title>List Of Members</title>
     </head>
     <body>
 
-    <h1>List of Users currently in Database</h1>
+    <h1>List of Members currently in Database</h1>
     
-<table id="userListTable" border="3">
+<table id="memberListTable" border="3">
 <tr >
     <th bgcolor=>ID</th>
     <th bgcolor=>FirstName</th>
     <th bgcolor=>LastName</th>
 </tr>
-<c:forEach var="user" begin="0" items="${requestScope.userList}">
+<c:forEach var="member" begin="0" items="${requestScope.memberList}">
 <tr>
-    <td>${user.id}&nbsp;&nbsp;</td> 
-    <td>${user.firstName}&nbsp;&nbsp;</td> 
-    <td>${user.lastName}&nbsp;&nbsp;</td> 
+    <td>${member.id}&nbsp;&nbsp;</td> 
+    <td>${member.firstName}&nbsp;&nbsp;</td> 
+    <td>${member.lastName}&nbsp;&nbsp;</td> 
 </tr> 
 
 </c:forEach>
 
 </table>
-<a href="CreateUser.jsp"><strong>Create a User Record</strong></a>
+<a href="CreateMember.jsp"><strong>Create a Member Record</strong></a>
 </body>
 </html>

@@ -50,6 +50,7 @@
     <th bgcolor=>FirstName</th>
     <th bgcolor=>LastName</th>
     <th bgcolor=>Email</th>
+    <th bgcolor=>Since</th>
 </tr>
 <c:forEach var="member" begin="0" items="${requestScope.memberList}">
 <tr>
@@ -57,6 +58,7 @@
     <td>${member.firstName}&nbsp;&nbsp;</td> 
     <td>${member.lastName}&nbsp;&nbsp;</td> 
     <td>${member.email}&nbsp;&nbsp;</td> 
+    <td>${member.since}&nbsp;&nbsp;</td> 
 </tr> 
 
 </c:forEach>

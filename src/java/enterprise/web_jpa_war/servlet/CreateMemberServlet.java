@@ -32,6 +32,7 @@ package enterprise.web_jpa_war.servlet;
 
 import enterprise.web_jpa_war.entity.Member;
 import java.io.*;
+import java.util.Date;
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
@@ -74,6 +75,7 @@ public class CreateMemberServlet extends HttpServlet {
             
             //Create a member instance out of it
             Member member = new Member(firstName, lastName, email);
+            member.setSince(new Date());
             
             //begin a transaction
             utx.begin();

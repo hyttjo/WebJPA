@@ -65,10 +65,6 @@ public class Member {
      */
     public Member() {
     }
-    
-    public Member(Integer id) {
-        this.id = id;
-    }
 
     public Member(String firstName, String lastName, String email) {
         this.firstName = firstName;
@@ -78,10 +74,6 @@ public class Member {
 
     public Integer getId() {
         return this.id;
-    }
-    
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getLastName() {

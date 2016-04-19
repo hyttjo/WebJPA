@@ -45,7 +45,6 @@
     <h1>Create a Member record</h1>
     <form id="createMemberForm" action="CreateMember" method="post">
     <table>
-        <tr><td>ID:</td><td><input type="text" id = "id" name="id" /></td></tr>
         <tr><td>FirstName</td><td><input type="text" id = "firstName" name="firstName" /></td></tr>
         <tr><td>LastName</td><td><input type="text" id = "lastName" name="lastName" /></td></tr>
         <tr><td>Email</td><td><input type="text" id = "email" name="email" /></td></tr>

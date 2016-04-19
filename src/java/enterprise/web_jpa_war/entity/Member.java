@@ -33,6 +33,8 @@ package enterprise.web_jpa_war.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -45,8 +47,9 @@ import javax.persistence.Table;
 public class Member {
 
     @Id
-    @Column(name = "ID")
-    private String id;
+    @GeneratedValue(strategy=IDENTITY)
+    @Column(name = "ID", nullable = false)
+    private Integer id;
 
     @Column(name = "LASTNAME")
     private String lastName;
@@ -62,16 +65,23 @@ public class Member {
      */
     public Member() {
     }
-
-    public Member(String id, String firstName, String lastName, String email) {
+    
+    public Member(Integer id) {
         this.id = id;
+    }
+
+    public Member(String firstName, String lastName, String email) {
         this.firstName = firstName;
         this.lastName  = lastName;
         this.email  = email;
     }
 
-    public String getId() {
+    public Integer getId() {
         return this.id;
+    }
+    
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getLastName() {

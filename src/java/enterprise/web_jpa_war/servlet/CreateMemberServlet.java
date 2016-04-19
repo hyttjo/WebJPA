@@ -71,9 +71,10 @@ public class CreateMemberServlet extends HttpServlet {
             String id         = (String) request.getParameter("id");
             String firstName  = (String) request.getParameter("firstName");
             String lastName   = (String) request.getParameter("lastName");
+            String email   = (String) request.getParameter("email");
             
             //Create a member instance out of it
-            Member member = new Member(id, firstName, lastName);
+            Member member = new Member(id, firstName, lastName, email);
             
             //begin a transaction
             utx.begin();

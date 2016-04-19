@@ -49,12 +49,14 @@
     <th bgcolor=>ID</th>
     <th bgcolor=>FirstName</th>
     <th bgcolor=>LastName</th>
+    <th bgcolor=>Email</th>
 </tr>
 <c:forEach var="member" begin="0" items="${requestScope.memberList}">
 <tr>
     <td>${member.id}&nbsp;&nbsp;</td> 
     <td>${member.firstName}&nbsp;&nbsp;</td> 
     <td>${member.lastName}&nbsp;&nbsp;</td> 
+    <td>${member.email}&nbsp;&nbsp;</td> 
 </tr> 
 
 </c:forEach>

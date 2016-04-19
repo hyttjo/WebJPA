@@ -53,6 +53,9 @@ public class Member {
 
     @Column(name = "FIRSTNAME")
     private String firstName;
+    
+    @Column(name = "EMAIL")
+    private String email;
 
     /**
      * Creates a new instance of User
@@ -60,10 +63,11 @@ public class Member {
     public Member() {
     }
 
-    public Member(String id, String firstName, String lastName) {
+    public Member(String id, String firstName, String lastName, String email) {
         this.id = id;
         this.firstName = firstName;
         this.lastName  = lastName;
+        this.email  = email;
     }
 
     public String getId() {
@@ -78,4 +82,7 @@ public class Member {
         return this.firstName;
     }
     
+    public String getEmail() {
+        return email;
+    }
 }

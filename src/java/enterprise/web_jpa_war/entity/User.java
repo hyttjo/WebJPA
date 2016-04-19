@@ -41,8 +41,8 @@ import javax.persistence.Table;
  * @author mitesh
  */
 @Entity
-@Table(name = "PERSON")
-public class Person {
+@Table(name = "USER")
+public class User {
 
     @Id
     @Column(name = "ID")
@@ -55,12 +55,12 @@ public class Person {
     private String firstName;
 
     /**
-     * Creates a new instance of Person
+     * Creates a new instance of User
      */
-    public Person() {
+    public User() {
     }
 
-    public Person(String id, String firstName, String lastName) {
+    public User(String id, String firstName, String lastName) {
         this.id = id;
         this.firstName = firstName;
         this.lastName  = lastName;

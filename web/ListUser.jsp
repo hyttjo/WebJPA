@@ -38,19 +38,28 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Create a Person Record</title>
+        <title>List Of Users</title>
     </head>
     <body>
 
-    <h1>Create a Person record</h1>
-    <form id="createPersonForm" action="CreatePerson" method="post">
-    <table>
-        <tr><td>ID:</td><td><input type="text" id = "id" name="id" /></td></tr>
-        <tr><td>FirstName</td><td><input type="text" id = "firstName" name="firstName" /></td></tr>
-        <tr><td>LastName</td><td><input type="text" id = "lastName" name="lastName" /></td></tr>
-    </table>
-    <input type="submit" id="CreateRecord" value="CreateRecord" />
-    </form>
-<a href="ListPerson"><strong>Go to List of persons</strong></a>
+    <h1>List of Users currently in Database</h1>
+    
+<table id="userListTable" border="3">
+<tr >
+    <th bgcolor=>ID</th>
+    <th bgcolor=>FirstName</th>
+    <th bgcolor=>LastName</th>
+</tr>
+<c:forEach var="user" begin="0" items="${requestScope.userList}">
+<tr>
+    <td>${user.id}&nbsp;&nbsp;</td> 
+    <td>${user.firstName}&nbsp;&nbsp;</td> 
+    <td>${user.lastName}&nbsp;&nbsp;</td> 
+</tr> 
+
+</c:forEach>
+
+</table>
+<a href="CreateUser.jsp"><strong>Create a User Record</strong></a>
 </body>
 </html>

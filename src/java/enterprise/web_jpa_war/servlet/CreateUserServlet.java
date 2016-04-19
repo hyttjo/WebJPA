@@ -30,7 +30,7 @@
 
 package enterprise.web_jpa_war.servlet;
 
-import enterprise.web_jpa_war.entity.Person;
+import enterprise.web_jpa_war.entity.User;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
@@ -44,10 +44,10 @@ import javax.transaction.UserTransaction;
 
 
 /**
- * The sevelet class to insert Person into database
+ * The servlet class to insert User into database
  */
-@WebServlet(name="CreatePersonServlet", urlPatterns={"/CreatePerson"})
-public class CreatePersonServlet extends HttpServlet {
+@WebServlet(name="CreateUserServlet", urlPatterns={"/CreateUser"})
+public class CreateUserServlet extends HttpServlet {
     
     @PersistenceUnit
     //The emf corresponding to 
@@ -72,8 +72,8 @@ public class CreatePersonServlet extends HttpServlet {
             String firstName  = (String) request.getParameter("firstName");
             String lastName   = (String) request.getParameter("lastName");
             
-            //Create a person instance out of it
-            Person person = new Person(id, firstName, lastName);
+            //Create a user instance out of it
+            User user = new User(id, firstName, lastName);
             
             //begin a transaction
             utx.begin();
@@ -81,15 +81,15 @@ public class CreatePersonServlet extends HttpServlet {
             //Since the em is created inside a transaction, it is associsated with 
             //the transaction
             em = emf.createEntityManager();
-            //persist the person entity
-            em.persist(person);
+            //persist the user entity
+            em.persist(user);
             //commit transaction which will trigger the em to 
             //commit newly created entity into database
             utx.commit();
             
-            //Forward to ListPerson servlet to list persons along with the newly
-            //created person above
-            request.getRequestDispatcher("ListPerson").forward(request, response);
+            //Forward to ListUser servlet to list users along with the newly
+            //created user above
+            request.getRequestDispatcher("ListUser").forward(request, response);
         } catch (Exception ex) {
             throw new ServletException(ex);
         } finally {

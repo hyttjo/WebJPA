@@ -65,5 +65,7 @@
 
 </table>
 <a href="CreateMember.jsp"><strong>Create a Member Record</strong></a>
+<a href="ListEvent"><strong>Go to List of events</strong></a>
+<a href="CreateEvent.jsp"><strong>Create a Event Record</strong></a>
 </body>
 </html>

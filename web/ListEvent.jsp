@@ -38,21 +38,30 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Create a Member Record</title>
+        <title>List Of Events</title>
     </head>
     <body>
 
-    <h1>Create a Member record</h1>
-    <form id="createMemberForm" action="CreateMember" method="post">
-    <table>
-        <tr><td>FirstName</td><td><input type="text" id = "firstName" name="firstName" /></td></tr>
-        <tr><td>LastName</td><td><input type="text" id = "lastName" name="lastName" /></td></tr>
-        <tr><td>Email</td><td><input type="text" id = "email" name="email" /></td></tr>
-    </table>
-    <input type="submit" id="CreateRecord" value="CreateRecord" />
-    </form>
+    <h1>List of Events currently in Database</h1>
+    
+<table id="eventListTable" border="3">
+<tr >
+    <th bgcolor=>ID</th>
+    <th bgcolor=>Type</th>
+    <th bgcolor=>Date</th>
+</tr>
+<c:forEach var="event" begin="0" items="${requestScope.eventList}">
+<tr>
+    <td>${event.id}&nbsp;&nbsp;</td> 
+    <td>${event.type}&nbsp;&nbsp;</td> 
+    <td>${event.date}&nbsp;&nbsp;</td> 
+</tr> 
+
+</c:forEach>
+
+</table>
 <a href="ListMember"><strong>Go to List of members</strong></a>
-<a href="ListEvent"><strong>Go to List of events</strong></a>
+<a href="CreateMember.jsp"><strong>Create a Member Record</strong></a>
 <a href="CreateEvent.jsp"><strong>Create a Event Record</strong></a>
 </body>
 </html>

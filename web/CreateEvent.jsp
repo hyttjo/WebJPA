@@ -38,21 +38,19 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Create a Member Record</title>
+        <title>Create a Event Record</title>
     </head>
     <body>
 
-    <h1>Create a Member record</h1>
-    <form id="createMemberForm" action="CreateMember" method="post">
+    <h1>Create a Event record</h1>
+    <form id="createEventForm" action="CreateEvent" method="post">
     <table>
-        <tr><td>FirstName</td><td><input type="text" id = "firstName" name="firstName" /></td></tr>
-        <tr><td>LastName</td><td><input type="text" id = "lastName" name="lastName" /></td></tr>
-        <tr><td>Email</td><td><input type="text" id = "email" name="email" /></td></tr>
+        <tr><td>Type</td><td><input type="text" id = "type" name="type" /></td></tr>
     </table>
     <input type="submit" id="CreateRecord" value="CreateRecord" />
     </form>
 <a href="ListMember"><strong>Go to List of members</strong></a>
+<a href="CreateMember.jsp"><strong>Create a Member Record</strong></a>
 <a href="ListEvent"><strong>Go to List of events</strong></a>
-<a href="CreateEvent.jsp"><strong>Create a Event Record</strong></a>
 </body>
 </html>

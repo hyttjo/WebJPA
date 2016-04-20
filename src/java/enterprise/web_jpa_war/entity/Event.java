@@ -46,37 +46,29 @@ import javax.persistence.TemporalType;
  * @author mitesh
  */
 @Entity
-@Table(name = "MEMBER")
-public class Member {
+@Table(name = "EVENT")
+public class Event {
 
     @Id
     @GeneratedValue(strategy=IDENTITY)
     @Column(name = "ID", nullable = false)
     private Integer id;
-
-    @Column(name = "LASTNAME", nullable = false)
-    private String lastName;
-
-    @Column(name = "FIRSTNAME", nullable = false)
-    private String firstName;
     
-    @Column(name = "EMAIL", nullable = false)
-    private String email;
+    @Column(name = "TYPE", nullable = false)
+    private String type;
     
-    @Column(name = "SINCE")
+    @Column(name = "EVENTDATE")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date since;
+    private Date date;
 
     /**
-     * Creates a new instance of Member
+     * Creates a new instance of Event
      */
-    public Member() {
+    public Event() {
     }
-
-    public Member(String firstName, String lastName, String email) {
-        this.firstName = firstName;
-        this.lastName  = lastName;
-        this.email  = email;
+    
+    public Event(String type) {
+        this.type = type;
     }
 
     public Integer getId() {
@@ -86,36 +78,20 @@ public class Member {
     public void setId(Integer id) {
         this.id = id;
     }
-
-    public String getLastName() {
-        return this.lastName;
-    }
     
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public Date getDate() {
+        return date;
     }
 
-    public String getFirstName() {
-        return this.firstName;
+    public void setDate(Date date) {
+        this.date = date;
     }
     
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-    
-    public String getEmail() {
-        return email;
-    }
-    
-    public void setEmail(String email) {
-        this.email = email;
-    }
-    
-    public Date getSince() {
-        return since;
+    public String getType() {
+        return type;
     }
 
-    public void setSince(Date since) {
-        this.since = since;
+    public void setType(String type) {
+        this.type = type;
     }
 }

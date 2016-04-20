@@ -43,9 +43,31 @@
     <body>
 
     <h1>Create a Event record</h1>
-    <form id="createEventForm" action="CreateEvent" method="post">
+    <form id="createEventForm" action="CreateEventPost" method="post">
     <table>
-        <tr><td>Type</td><td><input type="text" id = "type" name="type" /></td></tr>
+        <tr>
+            <td>Type</td>
+            <td>
+                 <select id="type" name="type">
+                    <option val="CreatedMember">CreatedMember</option>
+                    <option val="ChangedMember">ChangedMember</option>
+                    <option val="DeletedMember">DeletedMember</option>
+                    <option val="CreatedEvent">CreatedEvent</option>
+                    <option val="ChangedEvent">ChangedEvent</option>
+                    <option val="DeletedEvent">DeletedEvent</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Member</td>
+            <td>
+                <select id="member" name="member">
+                    <c:forEach var="member" begin="0" items="${requestScope.memberList}">
+                        <option value="${member.id}">${member.firstName} ${member.lastName}</option>
+                    </c:forEach>
+                </select>
+            </td>
+        </tr>
     </table>
     <input type="submit" id="CreateRecord" value="CreateRecord" />
     </form>

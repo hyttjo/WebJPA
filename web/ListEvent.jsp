@@ -48,12 +48,14 @@
 <tr >
     <th bgcolor=>ID</th>
     <th bgcolor=>Type</th>
+    <th bgcolor=>Member</th>
     <th bgcolor=>Date</th>
 </tr>
 <c:forEach var="event" begin="0" items="${requestScope.eventList}">
 <tr>
     <td>${event.id}&nbsp;&nbsp;</td> 
-    <td>${event.type}&nbsp;&nbsp;</td> 
+    <td>${event.type}&nbsp;&nbsp;</td>
+    <td>${event.member.firstName} ${event.member.lastName}&nbsp;&nbsp;</td> 
     <td>${event.date}&nbsp;&nbsp;</td> 
 </tr> 
 
@@ -62,6 +64,6 @@
 </table>
 <a href="ListMember"><strong>Go to List of members</strong></a>
 <a href="CreateMember.jsp"><strong>Create a Member Record</strong></a>
-<a href="CreateEvent.jsp"><strong>Create a Event Record</strong></a>
+<a href="CreateEvent"><strong>Create a Event Record</strong></a>
 </body>
 </html>

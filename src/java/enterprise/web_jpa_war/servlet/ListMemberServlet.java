@@ -43,7 +43,7 @@ import javax.persistence.EntityManager;
 /**
  * The servlet class to list Members from database
  */
-@WebServlet(name="ListMemberServlet", urlPatterns={"/ListMember"})
+@WebServlet(name="ListMemberServlet", urlPatterns={"/ListMember", "/CreateEvent"})
 public class ListMemberServlet extends HttpServlet {
     
     @PersistenceUnit
@@ -65,7 +65,14 @@ public class ListMemberServlet extends HttpServlet {
             request.setAttribute("memberList",members);
             
             //Forward to the jsp page for rendering
-            request.getRequestDispatcher("ListMember.jsp").forward(request, response);
+            String url = request.getServletPath();
+            
+            if (url.equals("/ListMember")) {
+                request.getRequestDispatcher("ListMember.jsp").forward(request, response);
+            } else if (url.equals("/CreateEvent")) {
+                request.getRequestDispatcher("CreateEvent.jsp").forward(request, response);
+            }
+            
         } catch (Exception ex) {
             throw new ServletException(ex);
         } finally {

@@ -37,6 +37,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -54,8 +56,10 @@ public class Event {
     @Column(name = "ID", nullable = false)
     private Integer id;
     
-    @Column(name = "TYPE", nullable = false)
+    @Column(name = "TYPE")
     private String type;
+    
+    private Member member;
     
     @Column(name = "EVENTDATE")
     @Temporal(TemporalType.TIMESTAMP)
@@ -79,19 +83,29 @@ public class Event {
         this.id = id;
     }
     
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-    
     public String getType() {
         return type;
     }
 
     public void setType(String type) {
         this.type = type;
+    }
+    
+    @ManyToOne()
+    @JoinColumn(name="MEMBER_ID")
+    public Member getMember() {
+        return member;
+    }
+
+    public void setMember(Member member) {
+        this.member = member;
+    }
+    
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 }

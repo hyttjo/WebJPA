@@ -31,12 +31,15 @@
 
 package enterprise.web_jpa_war.entity;
 
+import java.util.Collection;
 import java.util.Date;
+import static javax.persistence.CascadeType.ALL;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -62,6 +65,8 @@ public class Member {
     
     @Column(name = "EMAIL", nullable = false)
     private String email;
+    
+    private Collection<Event> events;
     
     @Column(name = "SINCE")
     @Temporal(TemporalType.TIMESTAMP)
@@ -109,6 +114,15 @@ public class Member {
     
     public void setEmail(String email) {
         this.email = email;
+    }
+    
+    @OneToMany(cascade=ALL, mappedBy="member")
+    public Collection<Event> getEvents() {
+        return events;
+    }
+
+    public void setEvents(Collection<Event> events) {
+        this.events = events;
     }
     
     public Date getSince() {

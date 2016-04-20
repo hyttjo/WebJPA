@@ -31,6 +31,7 @@
 package enterprise.web_jpa_war.servlet;
 
 import enterprise.web_jpa_war.entity.Event;
+import enterprise.web_jpa_war.entity.Member;
 import java.io.*;
 import java.util.Date;
 import javax.servlet.*;
@@ -41,13 +42,15 @@ import javax.persistence.PersistenceUnit;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityManager;
 import javax.annotation.Resource;
+import javax.persistence.Query;
 import javax.transaction.UserTransaction;
 
 
 /**
  * The servlet class to insert Event into database
  */
-@WebServlet(name="CreateEventServlet", urlPatterns={"/CreateEvent"})
+
+@WebServlet(name="CreateEventServlet", urlPatterns={"/CreateEventPost"})
 public class CreateEventServlet extends HttpServlet {
     
     @PersistenceUnit
@@ -61,7 +64,7 @@ public class CreateEventServlet extends HttpServlet {
     /** Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
      * @param request servlet request
      * @param response servlet response
-     */
+    */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException {
         assert emf != null;  //Make sure injection went through correctly.
@@ -70,6 +73,7 @@ public class CreateEventServlet extends HttpServlet {
             
             //Get the data from event's form
             String type   = (String) request.getParameter("type");
+            Integer member_id   = Integer.parseInt(request.getParameter("member"));
             
             //Create a event instance out of it
             Event event = new Event(type);
@@ -81,6 +85,13 @@ public class CreateEventServlet extends HttpServlet {
             //Since the em is created inside a transaction, it is associsated with 
             //the transaction
             em = emf.createEntityManager();
+            
+            Query q = em.createQuery("select m from Member m where m.id = :id");
+            q.setParameter("id", member_id);
+            
+            Member member = (Member)q.getSingleResult();
+            event.setMember(member);
+            
             //persist the event entity
             em.persist(event);
             //commit transaction which will trigger the em to 
@@ -105,6 +116,7 @@ public class CreateEventServlet extends HttpServlet {
      * @param request servlet request
      * @param response servlet response
      */
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         processRequest(request, response);
@@ -114,6 +126,7 @@ public class CreateEventServlet extends HttpServlet {
      * @param request servlet request
      * @param response servlet response
      */
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         processRequest(request, response);
@@ -121,8 +134,9 @@ public class CreateEventServlet extends HttpServlet {
     
     /** Returns a short description of the servlet.
      */
+
     public String getServletInfo() {
-        return "Short description";
+        return "Create Event";
     }
     // </editor-fold>
 }

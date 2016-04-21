@@ -1,0 +1,57 @@
+/* 
+    Created on : Apr 21, 2016, 3:23:48 PM
+    Author     : Hyttjo
+*/
+
+html {
+    font-family: arial;
+    padding: 20px 50px;
+}
+
+strong {
+    padding-left: 20px;
+}
+
+a:hover {
+    color: crimson;
+    font-style: italic;
+}
+
+table {
+    border: 3px solid;
+    border-collapse: collapse;
+}
+
+th {
+    padding: 5px;
+    border: 1px solid;
+    background-color: #FFB6B6;
+}
+
+td {
+    padding: 10px;
+    border: 1px solid;
+    background-color: #FFF4F4;
+}
+
+table table {
+    width: 100%;
+    margin: -2px 0px -3px 6px;
+    border: 1px solid;
+    font-size: 95%;
+}
+
+table table th {
+    padding: 1px;
+    font-weight: normal;
+    background-color: #C2DCFF;
+}
+
+.events > td {
+    background-color: grey !important;
+}
+
+.events td {
+    padding: 2px 5px;
+    background-color: #EAF3FF;
+}

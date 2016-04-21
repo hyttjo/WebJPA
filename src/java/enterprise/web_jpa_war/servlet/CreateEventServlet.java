@@ -50,7 +50,7 @@ import javax.transaction.UserTransaction;
  * The servlet class to insert Event into database
  */
 
-@WebServlet(name="CreateEventServlet", urlPatterns={"/CreateEventPost"})
+@WebServlet(name="CreateEventServlet", urlPatterns={"/CreateManualEvent", "/CreateAutoEvent"})
 public class CreateEventServlet extends HttpServlet {
     
     @PersistenceUnit
@@ -73,7 +73,20 @@ public class CreateEventServlet extends HttpServlet {
             
             //Get the data from event's form
             String type   = (String) request.getParameter("type");
-            Integer member_id   = Integer.parseInt(request.getParameter("member"));
+            
+            if (type == null) {
+                type = (String) request.getSession(false).getAttribute("type");
+                request.getSession(false).removeAttribute("type");
+            }
+            
+            String member_string = request.getParameter("member");
+            
+            if (member_string == null) {
+                member_string = (String) request.getSession(false).getAttribute("member");
+                request.getSession(false).removeAttribute("member");
+            }
+            
+            Integer member_id = Integer.parseInt(member_string);
             
             //Create a event instance out of it
             Event event = new Event(type);
@@ -98,9 +111,14 @@ public class CreateEventServlet extends HttpServlet {
             //commit newly created entity into database
             utx.commit();
             
-            //Forward to ListEvent servlet to list events along with the newly
-            //created event above
-            request.getRequestDispatcher("ListEvent").forward(request, response);
+            //Forward to the jsp page for rendering
+            String url = request.getServletPath();
+            
+            if (url.equals("/CreateManualEvent")) {
+                request.getRequestDispatcher("ListEvent").forward(request, response);
+            } else {
+                request.getRequestDispatcher("ListMember").forward(request, response);
+            }
         } catch (Exception ex) {
             throw new ServletException(ex);
         } finally {

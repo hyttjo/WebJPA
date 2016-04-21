@@ -41,18 +41,20 @@
         <title>Create a Member Record</title>
     </head>
     <body>
+        <h1>Create a Member record</h1>
 
-    <h1>Create a Member record</h1>
-    <form id="createMemberForm" action="CreateMember" method="post">
-    <table>
-        <tr><td>FirstName</td><td><input type="text" id = "firstName" name="firstName" /></td></tr>
-        <tr><td>LastName</td><td><input type="text" id = "lastName" name="lastName" /></td></tr>
-        <tr><td>Email</td><td><input type="text" id = "email" name="email" /></td></tr>
-    </table>
-    <input type="submit" id="CreateRecord" value="CreateRecord" />
-    </form>
-<a href="ListMember"><strong>Go to List of members</strong></a>
-<a href="ListEvent"><strong>Go to List of events</strong></a>
-<a href="CreateEvent"><strong>Create a Event Record</strong></a>
-</body>
+        <a href="ListMember"><strong>Go to List of members</strong></a><br>
+        <strong>Create a Member Record</strong><br>
+        <a href="ListEvent"><strong>Go to List of events</strong></a><br>
+        <a href="CreateEvent"><strong>Create a Manual Event Record</strong></a><br><br>
+
+        <form id="createMemberForm" action="CreateMember" method="post">
+            <table>
+                <tr><td>FirstName</td><td><input type="text" id = "firstName" name="firstName" /></td></tr>
+                <tr><td>LastName</td><td><input type="text" id = "lastName" name="lastName" /></td></tr>
+                <tr><td>Email</td><td><input type="text" id = "email" name="email" /></td></tr>
+            </table><br>
+            <input type="submit" id="CreateRecord" value="CreateRecord" />
+        </form>
+    </body>
 </html>

@@ -41,29 +41,28 @@
         <title>List Of Events</title>
     </head>
     <body>
+        <h1>List of Events currently in Database</h1>
 
-    <h1>List of Events currently in Database</h1>
-    
-<table id="eventListTable" border="3">
-<tr >
-    <th bgcolor=>ID</th>
-    <th bgcolor=>Type</th>
-    <th bgcolor=>Member</th>
-    <th bgcolor=>Date</th>
-</tr>
-<c:forEach var="event" begin="0" items="${requestScope.eventList}">
-<tr>
-    <td>${event.id}&nbsp;&nbsp;</td> 
-    <td>${event.type}&nbsp;&nbsp;</td>
-    <td>${event.member.firstName} ${event.member.lastName}&nbsp;&nbsp;</td> 
-    <td>${event.date}&nbsp;&nbsp;</td> 
-</tr> 
-
-</c:forEach>
-
-</table>
-<a href="ListMember"><strong>Go to List of members</strong></a>
-<a href="CreateMember.jsp"><strong>Create a Member Record</strong></a>
-<a href="CreateEvent"><strong>Create a Event Record</strong></a>
-</body>
+        <a href="ListMember"><strong>Go to List of members</strong></a><br>
+        <a href="CreateMember.jsp"><strong>Create a Member Record</strong></a><br>
+        <strong>Go to List of events</strong><br>
+        <a href="CreateEvent"><strong>Create a Manual Event Record</strong></a><br><br>
+        
+        <table id="eventListTable" border="3">
+            <tr >
+                <th bgcolor=>ID</th>
+                <th bgcolor=>Type</th>
+                <th bgcolor=>Member</th>
+                <th bgcolor=>Date</th>
+            </tr>
+            <c:forEach var="event" begin="0" items="${requestScope.eventList}">
+                <tr>
+                    <td>${event.id}&nbsp;&nbsp;</td> 
+                    <td>${event.type}&nbsp;&nbsp;</td>
+                    <td>${event.member.firstName} ${event.member.lastName}&nbsp;&nbsp;</td> 
+                    <td>${event.date}&nbsp;&nbsp;</td> 
+                </tr> 
+            </c:forEach>
+        </table>
+    </body>
 </html>

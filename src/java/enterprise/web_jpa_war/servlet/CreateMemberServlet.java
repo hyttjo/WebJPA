@@ -89,9 +89,12 @@ public class CreateMemberServlet extends HttpServlet {
             //commit newly created entity into database
             utx.commit();
             
-            //Forward to ListMember servlet to list members along with the newly
-            //created member above
-            request.getRequestDispatcher("ListMember").forward(request, response);
+            HttpSession session = request.getSession(true);
+            session.setAttribute("type", "CreatedMember");
+            session.setAttribute("member", member.getId().toString());
+            
+            RequestDispatcher rd = request.getRequestDispatcher("CreateAutoEvent");
+            rd.forward(request, response);
         } catch (Exception ex) {
             throw new ServletException(ex);
         } finally {
@@ -124,7 +127,7 @@ public class CreateMemberServlet extends HttpServlet {
     /** Returns a short description of the servlet.
      */
     public String getServletInfo() {
-        return "Short description";
+        return "Create Member Servlet";
     }
     // </editor-fold>
 }

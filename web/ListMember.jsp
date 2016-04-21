@@ -41,31 +41,30 @@
         <title>List Of Members</title>
     </head>
     <body>
+        <h1>List of Members currently in Database</h1>
 
-    <h1>List of Members currently in Database</h1>
-    
-<table id="memberListTable" border="3">
-<tr >
-    <th bgcolor=>ID</th>
-    <th bgcolor=>FirstName</th>
-    <th bgcolor=>LastName</th>
-    <th bgcolor=>Email</th>
-    <th bgcolor=>Since</th>
-</tr>
-<c:forEach var="member" begin="0" items="${requestScope.memberList}">
-<tr>
-    <td>${member.id}&nbsp;&nbsp;</td> 
-    <td>${member.firstName}&nbsp;&nbsp;</td> 
-    <td>${member.lastName}&nbsp;&nbsp;</td> 
-    <td>${member.email}&nbsp;&nbsp;</td> 
-    <td>${member.since}&nbsp;&nbsp;</td> 
-</tr> 
-
-</c:forEach>
-
-</table>
-<a href="CreateMember.jsp"><strong>Create a Member Record</strong></a>
-<a href="ListEvent"><strong>Go to List of events</strong></a>
-<a href="CreateEvent"><strong>Create a Event Record</strong></a>
-</body>
+        <strong>Go to List of members</strong><br>
+        <a href="CreateMember.jsp"><strong>Create a Member Record</strong></a><br>
+        <a href="ListEvent"><strong>Go to List of events</strong></a><br>
+        <a href="CreateEvent"><strong>Create a Manual Event Record</strong></a><br><br>
+        
+        <table id="memberListTable" border="3">
+            <tr>
+                <th bgcolor=>ID</th>
+                <th bgcolor=>FirstName</th>
+                <th bgcolor=>LastName</th>
+                <th bgcolor=>Email</th>
+                <th bgcolor=>Since</th>
+            </tr>
+        <c:forEach var="member" begin="0" items="${requestScope.memberList}">
+            <tr>
+                <td>${member.id}&nbsp;&nbsp;</td> 
+                <td>${member.firstName}&nbsp;&nbsp;</td> 
+                <td>${member.lastName}&nbsp;&nbsp;</td> 
+                <td>${member.email}&nbsp;&nbsp;</td> 
+                <td>${member.since}&nbsp;&nbsp;</td> 
+            </tr> 
+        </c:forEach>
+        </table>
+    </body>
 </html>

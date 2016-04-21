@@ -41,38 +41,37 @@
         <title>Create a Event Record</title>
     </head>
     <body>
-
-    <h1>Create a Event record</h1>
-    <form id="createEventForm" action="CreateEventPost" method="post">
-    <table>
-        <tr>
-            <td>Type</td>
-            <td>
-                 <select id="type" name="type">
-                    <option val="CreatedMember">CreatedMember</option>
-                    <option val="ChangedMember">ChangedMember</option>
-                    <option val="DeletedMember">DeletedMember</option>
-                    <option val="CreatedEvent">CreatedEvent</option>
-                    <option val="ChangedEvent">ChangedEvent</option>
-                    <option val="DeletedEvent">DeletedEvent</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>Member</td>
-            <td>
-                <select id="member" name="member">
-                    <c:forEach var="member" begin="0" items="${requestScope.memberList}">
-                        <option value="${member.id}">${member.firstName} ${member.lastName}</option>
-                    </c:forEach>
-                </select>
-            </td>
-        </tr>
-    </table>
-    <input type="submit" id="CreateRecord" value="CreateRecord" />
-    </form>
-<a href="ListMember"><strong>Go to List of members</strong></a>
-<a href="CreateMember.jsp"><strong>Create a Member Record</strong></a>
-<a href="ListEvent"><strong>Go to List of events</strong></a>
-</body>
+        <h1>Create a Manual Event record</h1>
+        
+        <a href="ListMember"><strong>Go to List of members</strong></a><br>
+        <a href="CreateMember.jsp"><strong>Create a Member Record</strong></a><br>
+        <a href="ListEvent"><strong>Go to List of events</strong></a><br>
+        <strong>Create a Manual Event Record</strong><br><br>
+        
+        <form id="createEventForm" action="CreateManualEvent" method="post">
+            <table>
+                <tr>
+                    <td>Type</td>
+                    <td>
+                        <select id="type" name="type">
+                            <option val="CreatedMember">CreatedMember</option>
+                            <option val="ChangedMember">ChangedMember</option>
+                            <option val="DeletedMember">DeletedMember</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Member</td>
+                    <td>
+                        <select id="member" name="member">
+                            <c:forEach var="member" begin="0" items="${requestScope.memberList}">
+                                <option value="${member.id}">${member.firstName} ${member.lastName}</option>
+                            </c:forEach>
+                        </select>
+                    </td>
+                </tr>
+            </table><br>
+            <input type="submit" id="CreateRecord" value="CreateRecord" />
+        </form>
+    </body>
 </html>

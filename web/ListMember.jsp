@@ -15,10 +15,10 @@
     <body>
         <h1>List of Members currently in Database</h1>
 
-        <strong>Go to List of members</strong><br>
-        <a href="CreateMember.jsp"><strong>Create a Member Record</strong></a><br>
-        <a href="ListEvent"><strong>Go to List of events</strong></a><br>
-        <a href="CreateEvent"><strong>Create a Manual Event Record</strong></a><br><br>
+        <a href="ListMember"><div class="menu active">List of members</div></a>
+        <a href="CreateMember.jsp"><div class="menu">Create a Member</div></a>
+        <a href="ListEvent"><div class="menu">List of events</div></a>
+        <a href="CreateEvent"><div class="menu">Create a Manual Event</div></a>
         
         <table>
             <tr>
@@ -49,7 +49,7 @@
                         </tr>
                         <c:forEach var="event" begin="0" items="${member.events}">
                             <tr>
-                                <td></td> 
+                                <td>${event.member.firstName} ${event.member.lastName}</td> 
                                 <td>${event.id}&nbsp;&nbsp;</td> 
                                 <td>${event.type}&nbsp;&nbsp;</td> 
                                 <td>${event.date}&nbsp;&nbsp;</td> 

@@ -14,10 +14,10 @@
     <body>
         <h1>List of Events currently in Database</h1>
 
-        <a href="ListMember"><strong>Go to List of members</strong></a><br>
-        <a href="CreateMember.jsp"><strong>Create a Member Record</strong></a><br>
-        <strong>Go to List of events</strong><br>
-        <a href="CreateEvent"><strong>Create a Manual Event Record</strong></a><br><br>
+        <a href="ListMember"><div class="menu">List of members</div></a>
+        <a href="CreateMember.jsp"><div class="menu">Create a Member</div></a>
+        <a href="ListEvent"><div class="menu active">List of events</div></a>
+        <a href="CreateEvent"><div class="menu">Create a Manual Event</div></a>
         
         <table>
             <tr >

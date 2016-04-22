@@ -21,9 +21,9 @@
 
         <form id="createMemberForm" action="CreateMember" method="post">
             <table>
-                <tr><td>FirstName</td><td><input type="text" id = "firstName" name="firstName" /></td></tr>
-                <tr><td>LastName</td><td><input type="text" id = "lastName" name="lastName" /></td></tr>
-                <tr><td>Email</td><td><input type="text" id = "email" name="email" /></td></tr>
+                <tr><td>First Name</td><td><input type="text" id="firstName" name="firstName" /></td></tr>
+                <tr><td>Last Name</td><td><input type="text" id="lastName" name="lastName" /></td></tr>
+                <tr><td>Email</td><td><input type="text" id="email" name="email" /></td></tr>
             </table><br>
             <input type="submit" id="CreateRecord" value="CreateRecord" />
         </form>

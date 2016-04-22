@@ -26,7 +26,7 @@
                     <td>
                         <select id="type" name="type">
                             <option val="CreatedMember">CreatedMember</option>
-                            <option val="ChangedMember">ChangedMemberData</option>
+                            <option val="EditedMember">EditedMember</option>
                             <option val="DeletedMember">DeletedMember</option>
                         </select>
                     </td>

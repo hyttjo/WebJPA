@@ -24,10 +24,11 @@
             <tr>
                 <th bgcolor=>Show events</th>
                 <th bgcolor=>ID</th>
-                <th bgcolor=>FirstName</th>
-                <th bgcolor=>LastName</th>
+                <th bgcolor=>First Name</th>
+                <th bgcolor=>Last Name</th>
                 <th bgcolor=>Email</th>
                 <th bgcolor=>Since</th>
+                <th bgcolor=>Edit data</th>
             </tr>
         <c:forEach var="member" begin="0" items="${requestScope.memberList}">
             <tr>
@@ -37,9 +38,10 @@
                 <td>${member.lastName}&nbsp;&nbsp;</td> 
                 <td>${member.email}&nbsp;&nbsp;</td> 
                 <td>${member.since}&nbsp;&nbsp;</td> 
+                <td><a href="ListEditMember?id=${member.id}">edit</a></td> 
             </tr>
             <tr class="events" style="display: none">
-                <td colspan="6">
+                <td colspan="7">
                     <table>
                         <tr>
                             <th>Member's events</th>

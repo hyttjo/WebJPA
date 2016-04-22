@@ -13,7 +13,7 @@ import javax.persistence.EntityManager;
 /**
  * The servlet class to list Members from database
  */
-@WebServlet(name="ListMemberServlet", urlPatterns={"/ListMember", "/CreateEvent"})
+@WebServlet(name="ListMemberServlet", urlPatterns={"/ListMember", "/ListEditMember", "/CreateEvent"})
 public class ListMemberServlet extends HttpServlet {
     
     @PersistenceUnit
@@ -27,6 +27,7 @@ public class ListMemberServlet extends HttpServlet {
     throws ServletException, IOException {
         assert emf != null;  //Make sure injection went through correctly.
         EntityManager em = null;
+        
         try {
             em = emf.createEntityManager();
 
@@ -39,6 +40,8 @@ public class ListMemberServlet extends HttpServlet {
             
             if (url.equals("/ListMember")) {
                 request.getRequestDispatcher("ListMember.jsp").forward(request, response);
+            } else if (url.equals("/ListEditMember")) {
+                request.getRequestDispatcher("EditMember.jsp").forward(request, response);
             } else if (url.equals("/CreateEvent")) {
                 request.getRequestDispatcher("CreateEvent.jsp").forward(request, response);
             }
